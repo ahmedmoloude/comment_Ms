@@ -1,16 +1,9 @@
 {
   "development": {
     "username": "root",
-<<<<<<< Updated upstream
-    "password": "password",
-    "database": "appraisal",
-    "host": "localhost",
-    "port" : 3307,
-=======
     "password": "",
     "database": "appraisal",
     "host": "127.0.0.1",
->>>>>>> Stashed changes
     "dialect": "mysql",
     "dialectOptions": {
       "connectTimeout": 60000
