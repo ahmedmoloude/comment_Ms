@@ -14,12 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Notfication.init({
-    username: DataTypes.STRING,
-    notifications: DataTypes.INTEGER,
-    folder_id: DataTypes.STRING
+    user_id: DataTypes.INTEGER,
+    notif_count	: DataTypes.INTEGER,
+    appraisal_id	: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Notfication',
+    tableName : 'notfications',
+    createdAt : 'created_at',
+    updatedAt : 'updated_at'
   });
   return Notfication;
 };

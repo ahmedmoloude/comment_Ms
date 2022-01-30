@@ -1,9 +1,10 @@
 {
   "development": {
-    "username": "sql11469037",
-    "password": "lpTwllkY9X",
-    "database": "sql11469037",
-    "host": "sql11.freemysqlhosting.net",
+    "username": "root",
+    "password": "password",
+    "database": "appraisal",
+    "host": "localhost",
+    "port" : 3307,
     "dialect": "mysql",
     "dialectOptions": {
       "connectTimeout": 60000
