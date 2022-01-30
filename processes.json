@@ -1,0 +1,18 @@
+{
+    "apps": [
+        {
+            "name": "commentms",
+            "script": "./index.js",
+            "merge_logs": true,
+            "instances": 1,
+            "autorestart": true,
+            "watch": true,
+            "time": true,
+            "max_restarts": 20,
+            "env": {
+                "PORT": 3000,
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+}

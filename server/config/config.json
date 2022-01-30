@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "sql11469037",
+    "password": "lpTwllkY9X",
+    "database": "sql11469037",
+    "host": "sql11.freemysqlhosting.net",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "connectTimeout": 60000
+    }
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
