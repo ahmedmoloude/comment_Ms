@@ -1,7 +1,7 @@
-'use strict';
 const {
-  Model
+  Model,
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Notfication extends Model {
     /**
@@ -12,17 +12,17 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
   Notfication.init({
     user_id: DataTypes.INTEGER,
-    notif_count	: DataTypes.INTEGER,
-    appraisal_id	: DataTypes.INTEGER
+    notif_count: DataTypes.INTEGER,
+    appraisal_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Notfication',
-    tableName : 'notfications',
-    createdAt : 'created_at',
-    updatedAt : 'updated_at'
+    tableName: 'notifications',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   });
   return Notfication;
 };
