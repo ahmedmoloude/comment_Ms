@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Reply extends Model {
     /**
@@ -15,18 +13,20 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
       });
     }
-  };
-  Reply.init({
-    user_id: DataTypes.INTEGER,
-    text: DataTypes.STRING,
-    comment_id : DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Reply',
-    tableName : 'replies',
-    createdAt : 'created_at',
-    updatedAt : 'updated_at'
-
-  });
+  }
+  Reply.init(
+    {
+      user_id: DataTypes.INTEGER,
+      text: DataTypes.STRING,
+      comment_id: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: 'Reply',
+      tableName: 'replies',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  );
   return Reply;
 };

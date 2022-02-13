@@ -1,6 +1,4 @@
-const {
-  Model,
-} = require('sequelize');
+const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class Notfication extends Model {
@@ -13,16 +11,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Notfication.init({
-    user_id: DataTypes.INTEGER,
-    notif_count: DataTypes.INTEGER,
-    appraisal_id: DataTypes.INTEGER,
-  }, {
-    sequelize,
-    modelName: 'Notfication',
-    tableName: 'notifications',
-    createdAt: 'created_at',
-    updatedAt: 'updated_at',
-  });
+  Notfication.init(
+    {
+      user_id: DataTypes.INTEGER,
+      notif_count: DataTypes.INTEGER,
+      appraisal_id: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: 'Notfication',
+      tableName: 'notifications',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  );
   return Notfication;
 };

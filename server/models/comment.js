@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Comment extends Model {
     /**
@@ -15,18 +13,20 @@ module.exports = (sequelize, DataTypes) => {
         as: 'replys',
       });
     }
-  };
-  Comment.init({
-    user_id: DataTypes.INTEGER,
-    text: DataTypes.STRING,
-    appraisal_id: DataTypes.INTEGER
-    
-  }, {
-    sequelize,
-    modelName: 'Comment',
-    tableName : 'comments',
-    createdAt : 'created_at',
-    updatedAt : 'updated_at'
-  });
+  }
+  Comment.init(
+    {
+      user_id: DataTypes.INTEGER,
+      text: DataTypes.STRING,
+      appraisal_id: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: 'Comment',
+      tableName: 'comments',
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
+  );
   return Comment;
 };
