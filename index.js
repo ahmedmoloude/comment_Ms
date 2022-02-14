@@ -1,11 +1,41 @@
-
 const express = require('express');
 const http = require('http');
+const redis = require('redis');
+// redis client
+
+// Using to publish
+const client = redis.createClient({
+  socket: {
+    host: '199.192.20.214',
+    port: '6379',
+  },
+  password:
+    '4D/HvxNPDcbAZuzAVJnGM9kVsZnZAtqOQtXUTXN0l6alhnMZQ8+MNxrreajUUsBmR05eKzVu0VAYcePI',
+});
+client.connect();
+const subscriber = client.duplicate();
+
+// To consume data
+(async function () {
+  await subscriber.connect();
+  await subscriber.subscribe('resources_update', (message) => {
+    console.log(message);
+  });
+}());
+
+// To publish data
+// client.publish('resources_update', 'Allah Mostaan');
+
 const logger = require('morgan');
 const socketio = require('socket.io');
 
-const connection = require('./server/websocket/index')
+const connection = require('./server/websocket/index');
+
 const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Publishing an Event using Redis');
+});
 
 const port = process.env.PORT || '3000';
 app.set('port', port);
@@ -23,15 +53,11 @@ const server = http.createServer(app);
 
 global.io = socketio(server);
 
+global.users = [];
 
-
-global.users = []
-
-
-global.io.on('connection', socket => connection(socket))
+global.io.on('connection', (socket) => connection(socket));
 
 server.listen(port);
-
 
 server.on('listening', () => {
   console.log(`Listening on porttttt:: http://localhost:${port}/`);
