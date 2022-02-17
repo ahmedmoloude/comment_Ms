@@ -32,7 +32,8 @@ app.get('/', (req, res) => {
   res.send('Publishing an Event using Redis');
 });
 
-const port = process.env.PORT || '3000';
+// const port = process.env.PORT || "3000";
+const port = '7500';
 app.set('port', port);
 
 app.use(logger('dev'));
@@ -60,8 +61,8 @@ global.io.on('connection', (socket) => connection(socket));
   });
 }());
 
-server.listen(port);
+server.listen(port, '0.0.0.0');
 
 server.on('listening', () => {
-  console.log(`Listening on porttttt:: http://localhost:${port}/`);
+  console.log(`Listening on porttttt:: http://0.0.0.:${port}/`);
 });
