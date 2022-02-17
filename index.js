@@ -16,12 +16,6 @@ client.connect();
 const subscriber = client.duplicate();
 
 // To consume data
-(async function () {
-  await subscriber.connect();
-  await subscriber.subscribe('resources_update', (message) => {
-    console.log(message);
-  });
-}());
 
 // To publish data
 // client.publish('resources_update', 'Allah Mostaan');
@@ -30,6 +24,7 @@ const logger = require('morgan');
 const socketio = require('socket.io');
 
 const connection = require('./server/websocket/index');
+const SocketEvents = require('./server/constants/SocketEvents');
 
 const app = express();
 
@@ -56,6 +51,14 @@ global.io = socketio(server);
 global.users = [];
 
 global.io.on('connection', (socket) => connection(socket));
+
+(async function () {
+  await subscriber.connect();
+  await subscriber.subscribe('resources_update', (message) => {
+    global.io.emit(SocketEvents.JOIN_RESOURCES_UPDATE, message);
+    //
+  });
+}());
 
 server.listen(port);
 
