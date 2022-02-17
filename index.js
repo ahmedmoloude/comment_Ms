@@ -54,11 +54,15 @@ global.users = [];
 global.io.on('connection', (socket) => connection(socket));
 
 (async function () {
-  await subscriber.connect();
-  await subscriber.subscribe('resources_update', (message) => {
-    global.io.emit(SocketEvents.JOIN_RESOURCES_UPDATE, message);
-    //
-  });
+  try {
+    await subscriber.connect();
+    await subscriber.subscribe('resources_update', (message) => {
+      global.io.emit(SocketEvents.JOIN_RESOURCES_UPDATE, message);
+      //
+    });
+  } catch (err) {
+    console.error('Rejection handled.');
+  }
 }());
 
 server.listen(port, '0.0.0.0');
