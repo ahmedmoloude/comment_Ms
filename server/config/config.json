@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "appraisal",
-    "password": "appraisal",
+    "username": "root",
+    "password": null,
     "database": "appraisal",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -17,8 +17,8 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "appraisal",
-    "password": "appraisal",
+    "username": "root",
+    "password": null,
     "database": "appraisal",
     "host": "127.0.0.1",
     "dialect": "mysql"
