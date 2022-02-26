@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
+  // الله أكبر
   Reply.init(
     {
       user_id: DataTypes.INTEGER,
