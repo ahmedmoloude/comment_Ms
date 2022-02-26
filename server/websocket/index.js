@@ -1,9 +1,15 @@
+const { MOBILE_CLIENT_POSITIONS } = require('../constants/SocketEvents');
 const SocketEvents = require('../constants/SocketEvents');
 const commentModel = require('../models').Comment;
 const replyModel = require('../models').Reply;
 const notificationModel = require('../models').Notfication;
 
 connection = (client) => {
+  console.log(client);
+  client.on(MOBILE_CLIENT_POSITIONS, (message) => {
+    console.log('Mise log: ', message);
+  });
+
   client.on('openchat', (info) => {
     console.log('user join');
 
