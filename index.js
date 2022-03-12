@@ -6,11 +6,11 @@ const redis = require('redis');
 // Using to publish
 const client = redis.createClient({
   socket: {
-    host: '199.192.20.214',
+    host: '63.250.41.139',
     port: '6379',
   },
   password:
-    '4D/HvxNPDcbAZuzAVJnGM9kVsZnZAtqOQtXUTXN0l6alhnMZQ8+MNxrreajUUsBmR05eKzVu0VAYcePI',
+    'nEUnCelbCM/ySy3Ugkcwe4/EPZQJYrLaqqiqTI8x581+W0gHwEzq8J+PasevRoHVF3YRCaWSwTNv8+aB',
 });
 client.connect();
 const subscriber = client.duplicate();
